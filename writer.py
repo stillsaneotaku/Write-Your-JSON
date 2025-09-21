@@ -33,13 +33,13 @@ class MyApp:
         self.root.frameT = tk.Frame(self.root, bg="gray", height = wheight/16, width = wwidth)
         self.root.frameT.pack(side="top")
         self.root.frameL = tk.Frame(self.root, bg="purple", height = wheight, width = wwidth/2)
-        self.root.frameL.pack(side="left")
+        self.root.frameL.pack(side="left", fill="y")
         self.root.frameUL = tk.Frame(self.root.frameL, bg="green", height = wheight/2, width = wwidth/2)
         self.root.frameUL.pack(side="top", fill="both", expand=True)
         self.root.frameBL = tk.Frame(self.root.frameL, bg="blue", height = wheight/2, width = wwidth/2)
         self.root.frameBL.pack(side="bottom", fill="both", expand=True)
         self.root.frameR = tk.Frame(self.root, bg="black", height = wheight, width = wwidth/2)
-        self.root.frameR.pack(side="right")
+        self.root.frameR.pack(side="right", fill="both", expand=True)
 
         # Hierarchy Panel
         self.hierarchy = ttk.Treeview(self.root.frameUL)
@@ -53,21 +53,21 @@ class MyApp:
 
         # Upper Left Frame Widgets
         self.root.openfile = tk.Button(self.root.frameUL, text="Open File", command=self.ask_open_file)
-        self.root.openfile.pack(side="top", fill="both", expand="True")
+        self.root.openfile.pack(side="top", fill="both", expand=True)
         self.root.extractjson = tk.Button(self.root.frameUL, text="Export", command=self.extract_file)
-        self.root.extractjson.pack(side="top", fill="both", expand="True")
+        self.root.extractjson.pack(side="top", fill="both", expand=True)
         self.root.deletenode = tk.Button(self.root.frameUL, text="Delete Node", command=lambda: self.delete_node(self.hierarchy.selection()))
-        self.root.deletenode.pack(side="top", fill="both", expand="True")
+        self.root.deletenode.pack(side="top", fill="both", expand=True)
         self.root.addnode = tk.Button(self.root.frameUL, text="Add Node", command=lambda: self.add_node(self.hierarchy.selection()))
-        self.root.addnode.pack(side="top", fill="both", expand="True")
+        self.root.addnode.pack(side="top", fill="both", expand=True)
         self.root.addrootnode = tk.Button(self.root.frameUL, text="Add Root Node", command=lambda: self.add_root_node())
-        self.root.addrootnode.pack(side="top", fill="both", expand="True")
+        self.root.addrootnode.pack(side="top", fill="both", expand=True)
         self.root.copynode = tk.Button(self.root.frameUL, text="Copy Node", command=lambda: self.copy_node(self.hierarchy.selection()))
-        self.root.copynode.pack(side="top", fill="both", expand="True")
+        self.root.copynode.pack(side="top", fill="both", expand=True)
         self.root.pastenode = tk.Button(self.root.frameUL, text="Paste", command=lambda: self.paste_node(self.hierarchy.selection()))
-        self.root.pastenode.pack(side="top", fill="both", expand="True")
+        self.root.pastenode.pack(side="top", fill="both", expand=True)
         self.root.pasterootnode = tk.Button(self.root.frameUL, text="Paste as Root", command=lambda: self.paste_root_node())
-        self.root.pasterootnode.pack(side="top", fill="both", expand="True")
+        self.root.pasterootnode.pack(side="top", fill="both", expand=True)
         # Binding for rename
         self.hierarchy.bind("<Double-1>", self.change_node_label)
 
@@ -75,7 +75,7 @@ class MyApp:
         self.root.instructions = tk.Label(self.root.frameBL, text="Enter node data below.")
         self.root.instructions.pack(side="top", fill="both", expand=True)
         self.root.textbox = tk.Text(self.root.frameBL, height=wheight//16, width=wwidth//16)
-        self.root.textbox.pack()
+        self.root.textbox.pack(fill="both", expand=True)
         # Binding for text box changes
         self.root.textbox.bind("<FocusIn>", self.write_to_node)
 
@@ -97,7 +97,7 @@ class MyApp:
         self.update_jsonview()
 
         self.root.geometry(f"{wwidth}x{wheight}+{wwidth//2}+{wheight//2}")
-        self.root.resizable(False, False)
+        self.root.resizable(True,True)
 
     def get_screen_size(self):
         return self.root.winfo_screenwidth(), self.root.winfo_screenheight()
