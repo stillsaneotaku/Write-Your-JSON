@@ -18,9 +18,10 @@ In command prompt do
     'pip install pyinstaller'
     'pyinstaller --onefile --windowed --icon=icon.ico --add-data "icon.ico;." writer.py'
 ```
+]
 ```
     Then open dist/JSONwriter.exe
 ```
-]
+
 
 I hope you'll find some use for it in your own projects!
