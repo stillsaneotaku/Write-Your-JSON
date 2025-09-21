@@ -14,11 +14,12 @@ to open JSON files and edit them but it can be expanded to adapt to and read tex
 How to use: 
 In command prompt do 
 [
-    '''pip install pyinstaller
+    '''
+    pip install pyinstaller
     pyinstaller --onefile --windowed --icon=icon.ico --add-data "icon.ico;." writer.py
 
-    open dist/JSONwriter.exe'''
-
+    open dist/JSONwriter.exe
+    '''
 ]
 
 I hope you'll find some use for it in your own projects!
