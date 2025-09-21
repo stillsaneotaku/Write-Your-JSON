@@ -1,0 +1,32 @@
+{
+    "1": {
+        "Image": "res://Resources/ChapterImages/enchanted_forest_under_the_moonlight_with_fairies_by_arcaneheaven_dib038c-fullview.jpg",
+        "Title": "The MNi",
+        "Story": "A mysterious forest filled with magical creatures. Dwarves and fairies used to live here in harmony.",
+        "Choices": {
+            "1": {
+                "Description": "Venture deeper into the forest.",
+                "Outcome": "You discover a hidden glade."
+            },
+            "2": {
+                "Description": "Leave the forest and return home.",
+                "Outcome": "You feel a sense of loss."
+            }
+        }
+    },
+    "2": {
+        "Image": "res://Resources/ChapterImages/enchanted_forest_under_the_moonlight_with_fairies_by_arcaneheaven_dib038c-fullview.jpg",
+        "Title": "The MNi",
+        "Story": "A mysterious forest filled with magical creatures. Dwarves and fairies used to live here in harmony.",
+        "Choices": {
+            "1": {
+                "Description": "Venture deeper into the forest.",
+                "Outcome": "You discover a hidden glade."
+            },
+            "2": {
+                "Description": "Leave the forest and return home.",
+                "Outcome": "You feel a sense of loss."
+            }
+        }
+    }
+}
