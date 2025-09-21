@@ -17,8 +17,9 @@ In command prompt do
 ```
     'pip install pyinstaller'
     'pyinstaller --onefile --windowed --icon=icon.ico --add-data "icon.ico;." writer.py'
-
-    open dist/JSONwriter.exe
+```
+```
+    Then open dist/JSONwriter.exe
 ```
 ]
 
