@@ -234,7 +234,9 @@ class MyApp:
             return
         for parent_id in parents:
             for subtree in self.node_board:
-                base_name = re.sub(r"\s*\d*$", "", subtree['text'])
+                base_name = re.sub(r"^(.+?)\s+\d+$", r"\1", subtree['text'])
+                if base_name == subtree['text']:  
+                    base_name = subtree['text']
                 count = self.count_nodes_with_base_name(base_name)
                 new_text = f"{base_name} {count+1}" if count > 0 else base_name
                 subtree_copy = dict(subtree)  
@@ -247,7 +249,9 @@ class MyApp:
             messagebox.showerror("Human Error!", "No node copied or no target selected")
             return
         for subtree in self.node_board:
-            base_name = re.sub(r"\s*\d*$", "", subtree['text'])
+            base_name = re.sub(r"^(.+?)\s+\d+$", r"\1", subtree['text'])
+            if base_name == subtree['text']:  
+                base_name = subtree['text']
             count = self.count_nodes_with_base_name(base_name)
             new_text = f"{base_name} {count+1}" if count > 0 else base_name
             subtree_copy = dict(subtree)  # shallow copy
@@ -355,8 +359,11 @@ class MyApp:
         children = self.hierarchy.get_children("")
         for i in children:
             text = self.hierarchy.item(i, "text")
-            match = re.match(rf"^{re.escape(base_name)}\s*\d*$", text)
-            if match:
+            # Check for exact match first
+            if text == base_name:
+                count += 1
+            # Then check for base_name followed by space and number
+            elif re.match(rf"^{re.escape(base_name)}\s+\d+$", text):
                 count += 1
         return count
 
@@ -364,7 +371,10 @@ class MyApp:
         parents = []
         parent = self.hierarchy.parent(node_id)
         while parent:
-            name1 = re.sub(r"\s*\d*$", "", self.hierarchy.item(parent, "text"))
+            parent_text = self.hierarchy.item(parent, "text")
+            name1 = re.sub(r"^(.+?)\s+\d+$", r"\1", parent_text)
+            if name1 == parent_text:  
+                name1 = parent_text
             parents.append(name1)
             parent = self.hierarchy.parent(parent)
         print(parents)
