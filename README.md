@@ -12,6 +12,7 @@ Uses:
 to open JSON files and edit them but it can be expanded to adapt to and read text documents in order to produce a JSON. 
 
 How to use: 
+Prerequisites: Python 3.13 and tkinter must be available for use in your system.
 In command prompt do 
 [
 ```
