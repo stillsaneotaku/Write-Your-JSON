@@ -16,7 +16,7 @@ In command prompt do
 [
 ```
     'pip install pyinstaller'
-    'pyinstaller --onefile --windowed --icon=icon.ico --add-data "icon.ico;." writer.py'
+    'pyinstaller --onefile --windowed --icon=icon.ico --add-data "icon.ico;." JSONwriter.py'
 ```
 ]
 ```
